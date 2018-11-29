@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "todo.authentication.find-by-email-uri",
+      "type": "java.lang.String",
+      "description": "The Directory URI, eg. http://localhost:8181/persons"
+    },
+    {
+      "name": "todo.authentication.username",
+      "type": "java.lang.String",
+      "description": "Username with ADMIN role"
+    },
+    {
+      "name": "todo.authentication.password",
+      "type": "java.lang.String",
+      "description": "Password"
+    }
+  ]
+}

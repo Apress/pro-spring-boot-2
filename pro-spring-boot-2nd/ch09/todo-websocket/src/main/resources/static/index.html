@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo WebSockets</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <h1>What ToDo?</h1>
+        <p>An easy way to find out what your are going to do NEXT!</p>
+    </div>
+
+    <div class="page-header">
+        <h1>Everybody ToDo's</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ToDo:</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="output">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+
+<script>
+
+    $(function(){
+        var stompClient = null;
+        var socket = new SockJS('http://localhost:8080/stomp');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+
+            stompClient.subscribe('/todo/new', function (data) {
+                console.log('>>>>> ' + data);
+                var json = JSON.parse(data.body);
+                var result = "<span><strong>[" + json.created + "]</strong>&nbsp" + json.description + "</span><br/>";
+                $("#output").append(result);
+            });
+
+        });
+
+    });
+</script>
+</body>
+</html>

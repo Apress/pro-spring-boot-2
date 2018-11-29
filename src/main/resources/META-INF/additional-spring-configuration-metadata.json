@@ -1,0 +1,9 @@
+{"properties": [{
+  "name": "todo.client.host",
+  "type": "java.lang.String",
+  "description": "ToDo Host. It defaults to http://localhost:8080."
+},{
+  "name": "todo.client.path",
+  "type": "java.lang.String",
+  "description": "ToDo Path. It defaults to /toDos."
+}]}

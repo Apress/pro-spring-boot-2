@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "server.ip",
+      "type": "java.lang.String",
+      "description": "This is the Server IP."
+    },
+    {
+      "name": "myapp.server-ip",
+      "type": "java.lang.String",
+      "description": "This is the Server IP."
+    },
+    {
+      "name": "myapp.name",
+      "type": "java.lang.String",
+      "description": "Name of the App."
+    },
+    {
+      "name": "myapp.description",
+      "type": "java.lang.String",
+      "description": "Description of the App."
+    }
+  ],
+  "hints": [
+    {
+     "name":"myapp.server-ip",
+      "values": [{
+          "value": "127.0.0.1",
+          "description": "This is a IP format."
+
+      }]
+    }
+  ]
+}

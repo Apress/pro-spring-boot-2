@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:component-scan base-package="com.apress.todo" />
+
+</beans>
+
+    <!--
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:mvc="http://www.springframework.org/schema/mvc"
+           xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+           xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+           xmlns:tx="http://www.springframework.org/schema/tx"
+           xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+        <context:component-scan base-package="com.apress.todo" />
+
+
+        <mvc:annotation-driven>
+            <mvc:message-converters>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper" ref="jsonMapper"/>
+                </bean>
+                <bean class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+                    <property name="objectMapper" ref="xmlMapper"/>
+                </bean>
+
+            </mvc:message-converters>
+        </mvc:annotation-driven>
+
+        <bean id="jsonMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+            <property name="simpleDateFormat" value="yyyy-MM-dd HH:mm:ss" />
+        </bean>
+
+
+        <bean id="xmlMapper" parent="jsonMapper">
+            <property name="createXmlMapper" value="true"/>
+        </bean>
+
+        <mvc:resources mapping="/webjars/**" location="classpath:META-INF/resources/webjars/" />
+
+        <jpa:repositories base-package="com.apress.todo.repository" />
+
+        <jdbc:embedded-database id="dataSource" type="H2">
+            <jdbc:script location="classpath:META-INF/sql/schema.sql" />
+            <jdbc:script location="classpath:META-INF/sql/data.sql" />
+        </jdbc:embedded-database>
+
+        <bean id="jpaVendorAdapter"
+              class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+            <property name="showSql" value="true" />
+        </bean>
+
+
+        <bean id="entityManagerFactory"
+              class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+            <property name="dataSource" ref="dataSource" />
+            <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        </bean>
+
+        <bean id="transactionManager"
+              class="org.springframework.orm.jpa.JpaTransactionManager">
+            <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        </bean>
+
+        <tx:annotation-driven transaction-manager="transactionManager" />
+
+        <bean
+                class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="/WEB-INF/views/" />
+            <property name="suffix" value=".jsp" />
+        </bean>
+
+        <bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer"
+              init-method="start" destroy-method="stop">
+            <constructor-arg value="-web,-webAllowOthers,-webDaemon,-webPort,8082" />
+        </bean>
+        -
+
+    </beans>
+    -->

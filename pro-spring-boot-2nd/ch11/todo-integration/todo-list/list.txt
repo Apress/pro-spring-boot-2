@@ -1,0 +1,5 @@
+buy milk today, true
+read a book, false
+go to the movies, true
+workout today, false
+buy some bananas, false

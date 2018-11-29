@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+    <int:channel id="input" />
+    <int:filter input-channel="input"
+                expression="payload.isCompleted()"
+
+                output-channel="filter" />
+    <int:channel id="filter" />
+    <int:transformer input-channel="filter"
+                     expression="payload.getDescription().toUpperCase()" output-channel="log" />
+    <int:channel id="log" />
+    <int:logging-channel-adapter channel="log" />
+
+
+</beans>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDo's API Login Page</title>
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <form class="form-signin" action="/login" method="POST">
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        <label for="username" class="sr-only">Username</label>
+        <input type="text"     name="username" class="form-control" placeholder="Username" required autofocus>
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" id="login" type="submit">Sign in</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+      </form>
+    </div>
+  </body>
+</html>
