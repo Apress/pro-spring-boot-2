@@ -17,7 +17,7 @@
         <jstl.version>1.2</jstl.version>
         <servlet.version>3.1.0</servlet.version>
         <bootstrap.version>3.3.7</bootstrap.version>
-        <jackson.version>2.9.2</jackson.version>
+        <jackson.version>2.9.10.8</jackson.version>
         <webjars.version>0.32</webjars.version>
 
         <!-- Spring -->
