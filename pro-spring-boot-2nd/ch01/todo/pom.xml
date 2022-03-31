@@ -21,7 +21,7 @@
         <webjars.version>0.32</webjars.version>
 
         <!-- Spring -->
-        <spring-framework.version>5.0.3.RELEASE</spring-framework.version>
+        <spring-framework.version>5.3.18</spring-framework.version>
 
         <!-- JPA -->
         <spring-data-jpa>1.11.4.RELEASE</spring-data-jpa>
